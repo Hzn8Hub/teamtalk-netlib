@@ -7,8 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(THIRD_DIR third)
 
 # 更精确地收集文件
-file(GLOB_RECURSE MAIN_HEADERS "src/*.h" "src/*.hpp")
-file(GLOB_RECURSE MAIN_SOURCES "src/*.cpp" "src/*.cc" "src/*.c")
+file(GLOB MAIN_HEADERS "src/*.h" "src/*.hpp")
+file(GLOB MAIN_SOURCES "src/*.cpp" "src/*.cc" "src/*.c")
 file(GLOB_RECURSE NETCORE_HEADERS "src/core/*.h" "src/core/*.hpp")
 file(GLOB_RECURSE NETCORE_SOURCES "src/core/*.cpp" "src/core/*.cc" "src/core/*.c")
 file(GLOB_RECURSE UTILITY_HEADERS "src/utility/*.h" "src/utility/*.hpp")
@@ -95,19 +95,13 @@ add_library(network STATIC
 )
 
 # 设置分类
-source_group("Generated" FILES ${PB_SOURCES})
-source_group("Generated" FILES ${PB_HEADERS})
-source_group("NetCore" FILES ${NETCORE_HEADERS})
-source_group("NetCore" FILES ${NETCORE_SOURCES})
-source_group("Utility" FILES ${UTILITY_HEADERS})
-source_group("Utility" FILES ${UTILITY_SOURCES})
-source_group("Protocol" FILES ${IMPDU_HEADERS})
-source_group("Protocol" FILES ${IMPDU_SOURCES})
-source_group("Header Files" FILES ${MAIN_HEADERS})
-source_group("Source Files" FILES ${MAIN_SOURCES})
+source_group("Basic" FILES ${MAIN_HEADERS} ${MAIN_SOURCES})
+source_group("NetCore" FILES ${NETCORE_HEADERS} ${NETCORE_SOURCES})
+source_group("Utility" FILES ${UTILITY_HEADERS} ${UTILITY_SOURCES})
+source_group("Protocol" FILES ${IMPDU_HEADERS} ${IMPDU_SOURCES})
+source_group("Generated" FILES ${PB_HEADERS} ${PB_SOURCES})
 if(WIN32)
-    source_group("Yaolog" FILES ${YAOLOG_SOURCES})
-    source_group("Yaolog" FILES ${YAOLOG_HEADERS})
+    source_group("Yaolog" FILES ${YAOLOG_HEADERS} ${YAOLOG_SOURCES})
 endif()
 
 # 设置输出目录
