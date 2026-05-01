@@ -33,11 +33,12 @@
 
 # vscode_folders
 .vscode/
+.cursor/
 
 # cmake
 bin/
 build/
 
 # pbgen
-src/pbgen/
-!src/pbgen/readme.txt
+pbgen/
+!readme.txt

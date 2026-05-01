@@ -10,7 +10,7 @@
 #define EXCEPTION_7889B422_4F2F_495F_AFAC_180F657486D2_H__
 
 #include <string>
-#include <imcore/ostype.h>
+#include <ostype.h>
 
 namespace imcore {
 
